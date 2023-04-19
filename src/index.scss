@@ -117,6 +117,63 @@ header {
   }
 }
 
+.cartTotalBlock {
+  ul {
+    margin-bottom: 20px;
+  }
+
+  li {
+    display: flex;
+    align-items: end;
+    margin-bottom: 20px;
+  }
+
+  div {
+    position: relative;
+    top: -4px;
+    margin: 0 7px;
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px dashed #dfdfdf;
+  }
+  .greenButton {
+    position: relative;
+
+    &:hover {
+      img {
+        transform: translateX(10px);
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: transform 0.15s ease-in-out;
+    }
+  }
+}
+
+.greenButton {
+  width: 100%;
+  width: 325px;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: none;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+  &:active {
+    background: darken($color: #9dd558, $amount: 5%);
+  }
+}
+
 .cartItem {
   padding: 20px;
   border: 1px solid #f3f3f3;
@@ -144,6 +201,7 @@ header {
   .removeBtn {
     opacity: 0.5;
     transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       opacity: 1;
