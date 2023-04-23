@@ -2,6 +2,11 @@ import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 
+const arr = [
+  {name: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999},
+  {name: 'Мужские Кроссовки Nike Air Max 270', price: 15600},
+];
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -16,8 +21,11 @@ function App() {
           </div>
         </div>
         <div className="d-flex">
-          <Card />
-          <div className="card">
+          {arr.map( obj => (
+            <Card/>
+          ))}
+          
+          {/* <div className="card">
             <img width={133} height={112} src="/img/sneakers/2.jpg" />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
@@ -55,7 +63,7 @@ function App() {
                 <img width={11} height={11} src="/img/plus.svg" alt="plus button" />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
