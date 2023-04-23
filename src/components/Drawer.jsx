@@ -2,12 +2,13 @@ import React from "react";
 
 const Drawer = () => {
   return (
-    <div style={{ display: "none" }} className="overlay">
+    <div style={{display:"none"}} className="overlay">
 
       <div className="drawer">
         <h2 className="mb-30">Корзина</h2>
 
         <div className="items">
+          
           <div className="cartItem d-flex align-center mb-20">
             <div style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }} className="cartItemImg">
             </div>
@@ -26,6 +27,7 @@ const Drawer = () => {
             </div>
             <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
           </div>
+
         </div>
 
         <div className="cartTotalBlock">

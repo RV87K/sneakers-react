@@ -117,7 +117,7 @@ header {
   .items {
     overflow: auto;
     margin-bottom: 40px;
-    // flex: 1 0 auto;
+    flex: 1;
   }
 
   h2 {
@@ -126,8 +126,6 @@ header {
 }
 
 .cartTotalBlock {
-  flex: 0 0 auto;
-
   ul {
     margin-bottom: 20px;
   }
