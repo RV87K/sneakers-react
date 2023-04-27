@@ -3,8 +3,26 @@ import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 
 const arr = [
-  {name: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999},
-  {name: 'Мужские Кроссовки Nike Air Max 270', price: 15600},
+  {
+    title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+    price: 12999,
+    imageUrl: '/img/sneakers/1.jpg'
+  },
+  {
+    title: 'Мужские Кроссовки Nike Air Max 270',
+    price: 15600,
+    imageUrl: '/img/sneakers/2.jpg'
+  },
+  {
+    title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+    price: 8499,
+    imageUrl: '/img/sneakers/3.jpg'
+  },
+  {
+    title: 'Кроссовки Puma X Aka Boku Future Rider',
+    price: 8999,
+    imageUrl: '/img/sneakers/4.jpg'
+  },
 ];
 
 function App() {
@@ -21,10 +39,15 @@ function App() {
           </div>
         </div>
         <div className="d-flex">
-          {arr.map( obj => (
-            <Card/>
+          {arr.map(obj => (
+            <Card
+              title={obj.title}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+              onClick={() => console.log(obj)}
+            />
           ))}
-          
+
           {/* <div className="card">
             <img width={133} height={112} src="/img/sneakers/2.jpg" />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
