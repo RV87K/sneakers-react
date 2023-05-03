@@ -1,11 +1,13 @@
 import React from "react";
 
-const Drawer = () => {
+const Drawer = (props) => {
   return (
     <div className="overlay">
 
       <div className="drawer">
-        <h2 className="mb-30">Корзина</h2>
+        <h2 className="mb-30 d-flex justify-between">Корзина
+          <img onClick={props.onClose} className="cu-p" src="/img/btn-remove.svg" alt="Close" />
+        </h2>
 
         <div className="items">
           
