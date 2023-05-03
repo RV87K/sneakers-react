@@ -2,8 +2,6 @@ import React from "react";
 
 const Header = (props) => {
 
-  console.log(props)
-
   return (
     <header className="d-flex justify-between align-center p-40">
       <div className="headerLeft d-flex align-center">
