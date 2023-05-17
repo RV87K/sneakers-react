@@ -7,16 +7,7 @@ import Header from "./components/Header";
 function App() {
 
   const [items, setItems] = React.useState([])
-  const [cartItems, setCartItems] = React.useState([{
-    "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-    "price": 12999,
-    "imageUrl": "/img/sneakers/1.jpg"
-  },
-  {
-    "title": "Мужские Кроссовки Nike Air Max 270",
-    "price": 15600,
-    "imageUrl": "/img/sneakers/2.jpg"
-  }])
+  const [cartItems, setCartItems] = React.useState([])
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
@@ -27,6 +18,9 @@ function App() {
     })
   }, []);
 
+  const onAddToCart = (obj) => {
+    setCartItems((prev) => [ ... prev, obj]);
+  }
 
   return (
     <div className="wrapper clear">
@@ -41,13 +35,13 @@ function App() {
           </div>
         </div>
         <div className="d-flex flex-wrap">
-          {items.map(obj => (
+          {items.map(item => (
             <Card
-              title={obj.title}
-              price={obj.price}
-              imageUrl={obj.imageUrl}
+              title={item.title}
+              price={item.price}
+              imageUrl={item.imageUrl}
               onFavorite={() => console.log('Добавили в закладки')}
-              onPlus={() => console.log('Нажали плюс')}
+              onPlus={(obj) => onAddToCart(obj)}
             />
           ))}
         </div>
