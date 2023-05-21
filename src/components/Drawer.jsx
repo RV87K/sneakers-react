@@ -1,6 +1,6 @@
 import React from "react";
 
-const Drawer = ({ onClose, items = [], onRemove }) => {
+const Drawer = ({ onClose, onRemove, items = []}) => {
   return (
     <div className="overlay">
       <div className="drawer">
@@ -67,7 +67,7 @@ const Drawer = ({ onClose, items = [], onRemove }) => {
             <p className="opacity-6">
               Добавьте хотя бы пару кроссовок. Чтобы сделать заказ.
             </p>
-            <button  onClick={onClose} className="greenButton">
+            <button onClick={onClose} className="greenButton">
               <img src="/img/arrow.svg" alt="Arrow" />
               Вернуться назад
             </button>
