@@ -38,9 +38,14 @@ function App() {
     setSearchValue(event.target.value)
   }
 
+  const onRemoveItem = (id) => {
+    axios.delete(`https://6452058dbce0b0a0f73a80b8.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter(item => item.id !== id));
+  }
+
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
