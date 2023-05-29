@@ -33,6 +33,12 @@ function App() {
       .then((res) => {
         setCartItems(res.data);
       });
+
+    axios
+      .get("https://6452058dbce0b0a0f77a80b8.mockapi.io/favorites")
+      .then((res) => {
+        setCartItems(res.data);
+      });
   }, []);
 
   const onAddToCart = (obj) => {
@@ -51,8 +57,13 @@ function App() {
   };
 
   const onAddToFavorite = (obj) => {
-    axios.post(`https://6452058dbce0b0a0f73a80b8.mockapi.io/favorites`, obj);
-    setFavorites((prev) => [...prev, obj]);
+    if (favorites.find(favObj => favObj.id === obj.id)){
+      axios.delete(`/favorites/${obj.id}`);
+      setFavorites((prev) => prev.filter((item) => item.id != obj.id));
+    } else {
+      axios.post(`https://6452058dbce0b0a0f73a80b8.mockapi.io/favorites`, obj);
+      setFavorites((prev) => [...prev, obj]);
+    }
   };
 
   return (
@@ -78,7 +89,7 @@ function App() {
           />}
         />
         <Route path="/favorites" element={
-          <Favorites />
+          <Favorites items={favorites} />
         }/>
       </Routes>
 
