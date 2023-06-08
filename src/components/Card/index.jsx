@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./Card.module.scss"
 
-const Card = ({id, title, imageUrl, price, onFavorite, onPlus, favorited = false}) => {
-  const [isAdded, setIsAdded] = React.useState(false);
+const Card = ({ id, title, imageUrl, price, onFavorite, onPlus, favorited = false, added = false }) => {
+  const [isAdded, setIsAdded] = React.useState(added);
   const [isFavorite, setIsFavorite] = React.useState(favorited)
 
   const onClickPlus = () => {
-    onPlus({title, imageUrl, price});
+    onPlus({ id, title, imageUrl, price });
     setIsAdded(!isAdded);
   }
 
   const onClickFavorite = () => {
-    onFavorite({id, title, imageUrl, price});
+    onFavorite({ id, title, imageUrl, price });
     setIsFavorite(!isFavorite);
   }
 
@@ -27,13 +27,13 @@ const Card = ({id, title, imageUrl, price, onFavorite, onPlus, favorited = false
           <span>Цена:</span>
           <b>{price} руб.</b>
         </div>
-          <img 
-            className={styles.plus} 
-            onClick={onClickPlus} 
-            src={isAdded ? '/img/btn-checked.svg' : '/img/plus.svg'} 
-            alt="plus button" />
+        <img
+          className={styles.plus}
+          onClick={onClickPlus}
+          src={isAdded ? '/img/btn-checked.svg' : '/img/plus.svg'}
+          alt="plus button" />
       </div>
-    </div> 
+    </div>
   )
 }
 
