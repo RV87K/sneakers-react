@@ -60,7 +60,6 @@ function App() {
       alert('неудалось добавить в фавориты')
     }
   };
-
   return (
     <div className="wrapper clear">
       {cartOpened && (
