@@ -1,6 +1,6 @@
 import React from "react";
 
-const Drawer = ({ onClose, onRemove, items = []}) => {
+const Drawer = ({ onClose, onRemove, items = [] }) => {
   return (
     <div className="overlay">
       <div className="drawer">
