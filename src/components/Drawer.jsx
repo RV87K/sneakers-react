@@ -7,19 +7,22 @@ const Drawer = ({ onClose, onRemove, items = [] }) => {
   const { cartItems, setCartItems } = React.useContext(AppContext);
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const onClickOrder = async () => {
     try {
-      const { data } = await axios.post(
-        "https://6452058dbce0b0a0f73a80b8.mockapi.io/orders",
-        cartItems
-      );
+      setIsLoading(true)
+      const { data } = await axios.post("https://6452058dbce0b0a0f73a80b8.mockapi.io/orders", {
+        items: cartItems,
+      });
+      await axios.put("https://6452058dbce0b0a0f73a80b8.mockapi.io/cart", []);
       setOrderId(data.id);
       setIsOrderComplete(true);
       setCartItems([]);
     } catch (error) {
       alert('не удалось создать заказ :(')
     }
+    setIsLoading(false)
   };
 
   return (
@@ -73,7 +76,7 @@ const Drawer = ({ onClose, onRemove, items = [] }) => {
                   <b>1074 руб.</b>
                 </li>
               </ul>
-              <button onClick={onClickOrder} className="greenButton">
+              <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
                 Оформить заказ
                 <img src="/img/arrow.svg" alt="arrow" />
               </button>
