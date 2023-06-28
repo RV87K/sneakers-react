@@ -16,6 +16,8 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  console.log(JSON.stringify(cartItems))
+
   React.useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
@@ -82,6 +84,7 @@ function App() {
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.id) === Number(id))
   }
+
 
   return (
     <AppContext.Provider value={{ items, cartItems, favorites, isItemAdded, onAddToFavorite, setCartOpened, setCartItems }}>
