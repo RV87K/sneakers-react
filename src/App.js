@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 import Favorites from "./pages/Favorites";
+import Orders from "./pages/Orders";
 import AppContext from "./context";
 
 
@@ -118,6 +119,12 @@ function App() {
             path="/favorites"
             element={
               <Favorites />
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <Orders />
             }
           />
         </Routes>
