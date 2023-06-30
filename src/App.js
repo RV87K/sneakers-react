@@ -17,8 +17,6 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  console.log(JSON.stringify(cartItems))
-
   React.useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
@@ -95,6 +93,7 @@ function App() {
             items={cartItems}
             onClose={() => setCartOpened(false)}
             onRemove={onRemoveItem}
+            opened={cartOpened}
           />
         )}
         <Header onClickCart={() => setCartOpened(true)} />

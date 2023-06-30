@@ -1,17 +1,19 @@
 import React from "react";
-import Info from "./Info";
-import AppContext from "../context";
 import axios from "axios";
-import { useCart } from "../hooks/useCart"
+
+import Info from "../Info";
+import { useCart } from "../../hooks/useCart";
+
+import styles from "./Drawer.module.scss";
+
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const Drawer = ({ onClose, onRemove, items = [] }) => {
+const Drawer = ({ onClose, onRemove, items = [], opened }) => {
   const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-
 
   const onClickOrder = async () => {
     try {
@@ -36,9 +38,11 @@ const Drawer = ({ onClose, onRemove, items = [] }) => {
     setIsLoading(false)
   };
 
+  console.log(opened)
+
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+      <div className={styles.drawer}>
         <h2 className="mb-30 d-flex justify-between">
           Корзина
           <img
