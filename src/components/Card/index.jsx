@@ -16,11 +16,10 @@ const Card = ({
 
   const { isItemAdded } = React.useContext(AppContext);
   const [isFavorite, setIsFavorite] = React.useState(favorited)
-
-  console.log(title, isItemAdded(id))
+  const obj = { id, parentId: id, title, imageUrl, price }
 
   const onClickPlus = () => {
-    onPlus({ id, title, imageUrl, price });
+    onPlus(obj);
   }
 
   const onClickFavorite = () => {
