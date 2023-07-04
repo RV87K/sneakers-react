@@ -50,8 +50,17 @@ function App() {
           `https://6452058dbce0b0a0f73a80b8.mockapi.io/cart/${findItem.id}`
         );
       } else {
+        setCartItems((prev) => [...prev, obj]);
         const { data } = await axios.post("https://6452058dbce0b0a0f73a80b8.mockapi.io/cart", obj);
-        setCartItems((prev) => [...prev, data]);
+        setCartItems((prev) => prev.map(item => {
+          if (item.parentId === data.parentId) {
+            return {
+              ...item, 
+              id: data.id
+            }
+          } 
+          return item
+        }));
       }
     } catch(error) {
       alert('Ошибка при добавлении в корзину!')
