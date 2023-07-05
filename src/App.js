@@ -115,7 +115,7 @@ function App() {
 
         <Routes>
           <Route
-            path=""
+            path="/"
             element={
               <Home
                 items={items}
