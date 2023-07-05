@@ -2,7 +2,7 @@
   "name": "sneakers-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rv87k.github.io/sneakers-react/",
+  "homepage": "https://rv87k.github.io/sneakers-react",
   "proxy": "https://6452058dbce0b0a0f73a80b8.mockapi.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
