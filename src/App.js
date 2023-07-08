@@ -130,13 +130,13 @@ function App() {
             }
           />
           <Route
-            path="favorites"
+            path="/favorites"
             element={
               <Favorites />
             }
           />
           <Route
-            path="orders"
+            path="/orders"
             element={
               <Orders />
             }
